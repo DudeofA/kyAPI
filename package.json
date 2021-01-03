@@ -1,0 +1,31 @@
+{
+  "name": "kyapi",
+  "version": "1.0.0",
+  "description": "API for all Kylixor applications",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DudeofA/kyAPI.git"
+  },
+  "keywords": [
+    "api",
+    "nodejs",
+    "kylixor"
+  ],
+  "author": "Andrew Langhill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DudeofA/kyAPI/issues"
+  },
+  "homepage": "https://github.com/DudeofA/kyAPI#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
