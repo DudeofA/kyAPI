@@ -3,15 +3,13 @@ const db = require("../../config/database");
 module.exports = {
     createUser: (data, callBack) => {
         db.run(
-            `INSERT INTO users(userID,name,discriminator,currentCID,lastSeenCID,credits,dailiesDone) VALUES(?,?,?,?,?,?,?)`,
+            `insert into registration(id, firstName, lastName, gender, email, password) values(NULL,?,?,?,?,?)`,
             [
-                data.userID,
-                data.name,
-                data.discriminator,
-                data.currentCID,
-                data.lastSeenCID,
-                data.credits,
-                data.dailiesDone
+                data.first_name,
+                data.last_name,
+                data.gender,
+                data.email,
+                data.password
             ], 
             (err, results, fields) => {
                 if (err) {
@@ -19,12 +17,39 @@ module.exports = {
                     return callBack(err);
                 }
                 return callBack(null,results);
-          });
+            }
+        );
     },
 
+    getUserByUserEmail: (email, callBack) => {
+        db.all(
+            `select * from registration where email = ?`,
+            [email],
+            (error, results, fields) => {
+                if (error) {
+                    allBack(error);
+                }
+                return callBack(null, results[0]);
+            }
+        );
+    },
+        
+    getUserByUserID: (id, callBack) => {
+        db.all(
+            `select * from registration where id = ?`,
+            [id],
+            (error, results, fields) => {
+                if (error) {
+                    return callBack(error);
+                }
+                return callBack(null, results);
+            }
+        );
+    },
+        
     getUsers: callBack => {
         db.all(
-            `SELECT * FROM users`,
+            `select * from registration`,
             [],
             (error, results) => {
                 if (error) {
@@ -35,30 +60,16 @@ module.exports = {
         );
     },
 
-    getUserByUserID: (id, callBack) => {
-        db.all(
-            `SELECT * FROM users WHERE userID = ?`,
-            [id],
-            (error, results, fields) => {
-                if (error) {
-                    return callBack(error);
-                }
-                return callBack(null, results);
-            }
-        );
-    },
-
     updateUser: (data, callBack) => {
         db.run(
-            `UPDATE users SET name=?, discriminator=?, currentCID=?, lastSeenCID=?, credits=?, dailiesDone=? WHERE userID=?`,
+            `update registration set firstName=?, lastName=?, gender=?, email=?, password=? where id = ?`,
             [
-                data.name,
-                data.discriminator,
-                data.currentCID,
-                data.lastSeenCID,
-                data.credits,
-                data.dailiesDone,
-                data.userID
+                data.first_name,
+                data.last_name,
+                data.gender,
+                data.email,
+                data.password,
+                data.id
             ],
             (error, results, fields) => {
                 if (error) {
@@ -69,22 +80,9 @@ module.exports = {
         );    
     },
 
-    getUserByUserID: (id, callBack) => {
-        db.all(
-            `SELECT * FROM users WHERE userID = ?`,
-            [id],
-            (error, results, fields) => {
-                if (error) {
-                    return callBack(error);
-                }
-                return callBack(null, results);
-            }
-        );
-    },
-
     deleteUser: (data, callBack) => {
         db.run(
-            `DELETE FROM users WHERE userID=?`,
+            `delete from registration where id = ?`,
             [data.id],
             (error, results, fields) => {
                 if (error) {
@@ -94,6 +92,4 @@ module.exports = {
             }
         );
     }
-
-
 };

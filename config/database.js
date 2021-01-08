@@ -12,15 +12,15 @@ db.serialize(function () {
         if (tables === undefined || tables.length == 0) {
             // Generate new clean database
             console.log("Database empty, generating template...")
-            db.run(`CREATE TABLE users(
-                userID text,
-                name text,
-                discriminator text,
-                currentCID text,
-                lastSeenCID text,
-                credits integer,
-                dailiesDone integer
-            )`, (err, result) => {
+            db.run(`CREATE TABLE registration (
+                id integer primary key,
+                firstName text,
+                lastName text,
+                gender text,
+                email text,
+                password text
+            )`, 
+            (err, result) => {
                 if (err) throw err;
                 console.log("User table created!");
             });
