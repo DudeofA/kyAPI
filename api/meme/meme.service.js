@@ -2,7 +2,7 @@ const axios = require('axios');
 const qs = require('qs');
 
 module.exports = {
-    createMeme: async function (memeID, callBack) {
+    createMeme: async function (memeID, caption, callBack) {
         let memeData = await axios.get('https://api.imgflip.com/get_memes');
         let randMeme = memeData.data.data.memes[Math.floor(Math.random() * memeData.data.data.memes.length)];
 
