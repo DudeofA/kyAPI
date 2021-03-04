@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const { createRandMeme } = require("./meme.controller");
+const { createRandMeme, createMemeByName } = require("./meme.controller");
 
 router.get("/", createRandMeme);
-// router.get("/:id", createMemeByName);
+router.get("/gen", createMemeByName);
 
 module.exports = router;

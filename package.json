@@ -4,7 +4,7 @@
   "description": "API for all Kylixor applications",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js --ignore 'cache/*'"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "node-cron": "^2.0.3",
     "qs": "^6.7.0",
     "sqlite3": "^5.0.0"
   },
