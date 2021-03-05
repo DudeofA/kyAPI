@@ -1,37 +1,38 @@
 {
-  "name": "kyapi",
-  "version": "1.0.0",
-  "description": "API for all Kylixor applications",
-  "main": "app.js",
-  "scripts": {
-    "start": "nodemon app.js --ignore 'cache/*'"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DudeofA/kyAPI.git"
-  },
-  "keywords": [
-    "api",
-    "nodejs",
-    "kylixor"
-  ],
-  "author": "Andrew Langhill",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DudeofA/kyAPI/issues"
-  },
-  "homepage": "https://github.com/DudeofA/kyAPI#readme",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "bcrypt": "^5.0.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "node-cron": "^2.0.3",
-    "qs": "^6.7.0",
-    "sqlite3": "^5.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.6"
-  }
+    "name": "kyapi",
+    "version": "1.0.0",
+    "description": "API for all Kylixor applications",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "debug": "nodemon app.js --ignore 'cache/*'"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DudeofA/kyAPI.git"
+    },
+    "keywords": [
+        "api",
+        "nodejs",
+        "kylixor"
+    ],
+    "author": "Andrew Langhill",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/DudeofA/kyAPI/issues"
+    },
+    "homepage": "https://github.com/DudeofA/kyAPI#readme",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "bcrypt": "^5.0.0",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "node-cron": "^2.0.3",
+        "qs": "^6.7.0",
+        "sqlite3": "^5.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.6"
+    }
 }

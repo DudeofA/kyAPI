@@ -12,8 +12,6 @@ module.exports = {
             );
             memeData = JSON.parse(rawMemeData);
             meme = memeData.data.memes[Math.floor(Math.random() * memeData.data.memes.length)].id;
-            toptext = "sample";
-            bottext = "text";
         }
         if (toptext == null) {
             toptext = "";
