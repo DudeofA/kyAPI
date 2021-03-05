@@ -14,10 +14,10 @@ module.exports = {
             meme = memeData.data.memes[Math.floor(Math.random() * memeData.data.memes.length)].id;
         }
         if (toptext == null) {
-            toptext = "";
+            toptext = " ";
         }
         if (bottext == null) {
-            bottext = "";
+            bottext = " ";
         }
 
         const data = {
