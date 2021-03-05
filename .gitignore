@@ -2,3 +2,4 @@
 *.db
 *.exe
 node_modules/
+cache/*
