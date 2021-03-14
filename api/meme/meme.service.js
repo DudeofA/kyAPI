@@ -58,6 +58,7 @@ module.exports = {
         const resp = await axios.post("https://api.imgflip.com/caption_image", qs.stringify(data));
         // body = '<html><img src="' + resp.data.data.url + '"></html>';
         body = resp.data.data.url;
+        console.log(body);
         return callBack(null, body);
     },
 
