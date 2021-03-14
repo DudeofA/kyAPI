@@ -11,15 +11,18 @@ class Meme {
 
 module.exports = {
     createRandMeme: (req, res) => {
-        createMeme(null, null, null, (err, meme) => {
+        createMeme(null, "_rand", "_rand", (err, meme) => {
             if (err) {
                 console.log(err);
                 return res.status(500).json({
-                    success: 0,
+                    success: false,
                     message: "Meme generation error :(",
                 });
             }
-            return res.send(meme);
+            return res.status(200).json({
+                success: true,
+                message: meme,
+            });
         });
     },
 
@@ -28,16 +31,19 @@ module.exports = {
             if (err) {
                 console.log(err);
                 return res.status(500).json({
-                    success: 0,
-                    messag: "Meme creation error",
+                    success: false,
+                    message: err,
                 });
             }
 
-            return res.send(meme);
+            return res.status(200).json({
+                success: true,
+                message: meme,
+            });
         });
     },
 
-    pullLatestMemes: (req, res) => {
+    pullLatestMemes: (_req, _res) => {
         pullLatestMemes();
     },
 };
